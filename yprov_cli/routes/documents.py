@@ -23,7 +23,8 @@ def get_docs(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
 
     token = check_token()
 
-    response = requests.get(req_url + f"?token={token}")
+    header = {"Authorization": f"Bearer {token}"}
+    response = requests.get(req_url, headers=header)
 
     parse_response(response, return_value=True)
 
@@ -48,7 +49,8 @@ def create_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
 
     token = check_token()
 
-    response = requests.put(f"{get_url()}documents/{doc_id}?token={token}", json=data)
+    header = {"Authorization": f"Bearer {token}"}
+    response = requests.put(f"{get_url()}documents/{doc_id}", headers=header, json=data)
 
     parse_response(response)
 
@@ -63,7 +65,8 @@ def delete_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     """
     token = check_token()
 
-    response = requests.delete(f"{get_url()}documents/{doc_id}?token={token}")
+    header = {"Authorization": f"Bearer {token}"}
+    response = requests.delete(f"{get_url()}documents/{doc_id}", headers=header)
 
     parse_response(response)
 
@@ -88,6 +91,7 @@ def add_user_to_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
 
     data = get_data(file, value)
 
-    response = requests.put(f"{get_url()}documents/{doc_id}/addUser?token={token}", json=data)
+    header = {"Authorization": f"Bearer {token}"}
+    response = requests.put(f"{get_url()}documents/{doc_id}/addUser", headers=header, json=data)
 
     parse_response(response)
