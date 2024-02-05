@@ -7,18 +7,17 @@ from requests import Response
 PREFIX = "/api/v0/"
 
 
-def get_url(prefix: bool = True) -> str:
+def get_url(address: str, port: int, prefix: bool = True) -> str:
     """
     Returns the url of the service.
     Before any other choice check if a config file is present otherwise check for environment variables
+    :param address: server address
+    :param port: server port
     :param prefix: if prefix must be added to the base url
     :return:
     """
-    if os.getenv("YPROV_CONFIG") or os.path.isfile("yprov_config.ini"):
-        config_file = os.getenv("YPROV_CONFIG") if os.getenv("YPROV_CONFIG") else "yprov_config.ini"
-        config = configparser.ConfigParser()
-        config.read(config_file)
-        addr = f"{config['DEFAULT']['YProvAddr']}:{config['DEFAULT']['YProvPort']}"
+    if address and port:
+        addr = f"{address}:{port}"
     elif os.getenv("YPROV_ADDR") and os.getenv("YPROV_PORT"):
         addr = f"{os.getenv('YPROV_ADDR')}:{os.getenv('YPROV_PORT')}"
     else:
@@ -30,25 +29,39 @@ def get_url(prefix: bool = True) -> str:
     return addr
 
 
-def get_data(file: str, value: str) -> dict:
+def get_data(file: str, value: str, user: str, password: str = None, level: str = None) -> dict:
     """
     Check the mutually exclusive parameters and return the contents as a dict
+    :param level: level of permission requested
+    :param password: user password
+    :param user: user's name
     :param file: file path
     :param value: json as a string
     :return:
     """
-    if file is None and value is None:
-        typer.echo("Please provide either a file or a value", err=True)
-        raise typer.Abort
-    elif file is not None and value is not None:
-        typer.echo("Please provide either a file or a value", err=True)
+    if level:
+        passed_values = True if user else False
+    else:
+        passed_values = True if password and user else False
+
+    # Check for mutual exclusivity between the three methods to pass information
+    if (file is None and value is None and not passed_values) or \
+            (file is None and value is not None and passed_values) or \
+            (file is not None and value is not None and passed_values) or \
+            (file is not None and value is None and passed_values) or \
+            (file is not None and value is not None and not passed_values):
+        typer.echo("Please provide either a file, a JSON string or both parameters", err=True)
         raise typer.Abort
     else:
         if file is not None:
             with open(file, 'r') as fp:
                 return json.load(fp)
-        else:
+        elif value is not None:
             return json.loads(value)
+        elif level is not None:
+            return {"user": user, "level": level}
+        else:
+            return {"user": user, "password": password}
 
 
 def parse_response(resp: Response, return_value: bool = False):
@@ -72,33 +85,24 @@ def check_token() -> str:
     Check if the token is specified
     :return:
     """
-    if os.getenv("YPROV_CONFIG") or os.path.isfile("yprov_config.ini"):
-        config_file = os.getenv("YPROV_CONFIG") if os.getenv("YPROV_CONFIG") else "yprov_config.ini"
-        config = configparser.ConfigParser()
-        config.read(config_file)
-        if 'YProvToken' in config['DEFAULT']:
-            return config['DEFAULT']['YProvToken']
-        else:
-            typer.echo("Token not present. Please log in!")
-            raise typer.Abort
-    elif os.getenv("YPROV_TOKEN"):
+    if os.getenv("YPROV_TOKEN"):
         return os.getenv("YPROV_TOKEN")
     else:
         typer.echo("Please specify token!")
         raise typer.Abort
 
-
-def add_token(response: Response):
-    """
-    Add the token to the config file if it exists
-    :param response: response object from the request
-    :return:
-    """
-    token = response.json()["result"]
-    if os.getenv("YPROV_CONFIG") or os.path.isfile("yprov_config.ini"):
-        config_file = os.getenv("YPROV_CONFIG") if os.getenv("YPROV_CONFIG") else "yprov_config.ini"
-        config = configparser.ConfigParser()
-        config.read(config_file)
-        config['DEFAULT']['YProvToken'] = token
-        with open(config_file, 'w') as fp:
-            config.write(fp)
+#
+# def add_token(response: Response):
+#     """
+#     Add the token to the config file if it exists
+#     :param response: response object from the request
+#     :return:
+#     """
+#     token = response.json()["result"]
+#     # if os.getenv("YPROV_CONFIG") or os.path.isfile("yprov_config.ini"):
+#     #     config_file = os.getenv("YPROV_CONFIG") if os.getenv("YPROV_CONFIG") else "yprov_config.ini"
+#     #     config = configparser.ConfigParser()
+#     #     config.read(config_file)
+#     #     config['DEFAULT']['YProvToken'] = token
+#     #     with open(config_file, 'w') as fp:
+#     #         config.write(fp)
