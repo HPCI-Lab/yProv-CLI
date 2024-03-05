@@ -29,7 +29,7 @@ def get_url(address: str, port: int, prefix: bool = True) -> str:
     return addr
 
 
-def get_data(file: str, value: str, user: str, password: str = None, level: str = None) -> dict:
+def get_data(file: str, value: str, user: str = None, password: str = None, level: str = None) -> dict:
     """
     Check the mutually exclusive parameters and return the contents as a dict
     :param level: level of permission requested
@@ -50,7 +50,7 @@ def get_data(file: str, value: str, user: str, password: str = None, level: str 
             (file is not None and value is not None and passed_values) or \
             (file is not None and value is None and passed_values) or \
             (file is not None and value is not None and not passed_values):
-        typer.echo("Please provide either a file, a JSON string or both parameters", err=True)
+        typer.echo("Please provide either a file, a JSON string or both user and password parameters", err=True)
         raise typer.Abort
     else:
         if file is not None:
