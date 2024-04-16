@@ -90,19 +90,3 @@ def check_token() -> str:
     else:
         typer.echo("Please specify token!")
         raise typer.Abort
-
-#
-# def add_token(response: Response):
-#     """
-#     Add the token to the config file if it exists
-#     :param response: response object from the request
-#     :return:
-#     """
-#     token = response.json()["result"]
-#     # if os.getenv("YPROV_CONFIG") or os.path.isfile("yprov_config.ini"):
-#     #     config_file = os.getenv("YPROV_CONFIG") if os.getenv("YPROV_CONFIG") else "yprov_config.ini"
-#     #     config = configparser.ConfigParser()
-#     #     config.read(config_file)
-#     #     config['DEFAULT']['YProvToken'] = token
-#     #     with open(config_file, 'w') as fp:
-#     #         config.write(fp)

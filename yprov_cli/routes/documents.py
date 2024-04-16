@@ -37,6 +37,38 @@ def get_docs(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     parse_response(response, return_value=True)
 
 
+@app.command('subgraph')
+def get_docs(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
+                                                 help="Name/ID of the document",
+                                                 show_default=False,
+                                                 rich_help_panel="Parameters")],
+             e_id: Annotated[str, typer.Option("--e-id", "-e",
+                                               help="ID of the element that contain the subgraph to extract",
+                                               show_default=False,
+                                               rich_help_panel="Parameters")],
+             server_addr: Annotated[str, typer.Option("--server", "-s",
+                                                      help="Server address",
+                                                      show_default=False,
+                                                      rich_help_panel="Connection Parameters")] = None,
+             port_addr: Annotated[int, typer.Option("--port", "-p",
+                                                    help="Server port",
+                                                    show_default=False,
+                                                    rich_help_panel="Connection Parameters")] = 3000):
+    """
+    Get subgraph of a specific element in specific document.
+
+
+    """
+    req_url = f"{get_url(server_addr, port_addr)}documents/{doc_id}/subgraph"
+
+    token = check_token()
+
+    header = {"Authorization": f"Bearer {token}"}
+    response = requests.get(req_url+f"?id={e_id}", headers=header)
+
+    parse_response(response, return_value=True)
+
+
 @app.command('create')
 def create_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                                                    help="Name/ID of the new document",
@@ -101,7 +133,7 @@ class Permissions(str, Enum):
     w = "w"
 
 
-@app.command('add-user')
+@app.command('permissions')
 def add_user_to_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                                                         help="Name/ID of the new document",
                                                         show_default=False,
@@ -139,6 +171,6 @@ def add_user_to_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     data = get_data(file, value, user, level=level.value)
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.put(f"{get_url(server_addr, port_addr)}documents/{doc_id}/addUser", headers=header, json=data)
+    response = requests.put(f"{get_url(server_addr, port_addr)}documents/{doc_id}/permissions", headers=header, json=data)
 
     parse_response(response)

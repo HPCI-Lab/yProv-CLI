@@ -54,19 +54,16 @@ Create new activity.
 **Usage**:
 
 ```console
-$ yprov-cli activities create [OPTIONS] DOC_ID
+$ yprov-cli activities create [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-f, --file TEXT`: File path of the activity file in JSON format
+* `-v, --value TEXT`: String with activity in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli activities delete`
@@ -76,18 +73,15 @@ Delete single activity.
 **Usage**:
 
 ```console
-$ yprov-cli activities delete [OPTIONS] DOC_ID E_ID
+$ yprov-cli activities delete [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the activity  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli activities get`
@@ -97,18 +91,15 @@ Get single activity.
 **Usage**:
 
 ```console
-$ yprov-cli activities get [OPTIONS] DOC_ID E_ID
+$ yprov-cli activities get [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the activity  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli activities update`
@@ -118,20 +109,17 @@ Update activity.
 **Usage**:
 
 ```console
-$ yprov-cli activities update [OPTIONS] DOC_ID E_ID
+$ yprov-cli activities update [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the activity  [required]
+* `-f, --file TEXT`: File path of the activity file in JSON format
+* `-v, --value TEXT`: String with activity in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ## `yprov-cli agents`
@@ -162,19 +150,16 @@ Create new agent.
 **Usage**:
 
 ```console
-$ yprov-cli agents create [OPTIONS] DOC_ID
+$ yprov-cli agents create [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-f, --file TEXT`: File path of the agent file in JSON format
+* `-v, --value TEXT`: String with agent in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli agents delete`
@@ -184,18 +169,15 @@ Delete single agent.
 **Usage**:
 
 ```console
-$ yprov-cli agents delete [OPTIONS] DOC_ID E_ID
+$ yprov-cli agents delete [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the agent  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli agents get`
@@ -205,18 +187,15 @@ Get single agent.
 **Usage**:
 
 ```console
-$ yprov-cli agents get [OPTIONS] DOC_ID E_ID
+$ yprov-cli agents get [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the agent  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli agents update`
@@ -226,20 +205,17 @@ Update agent.
 **Usage**:
 
 ```console
-$ yprov-cli agents update [OPTIONS] DOC_ID E_ID
+$ yprov-cli agents update [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the agent  [required]
+* `-f, --file TEXT`: File path of the agent file in JSON format
+* `-v, --value TEXT`: String with agent in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ## `yprov-cli auth`
@@ -275,12 +251,12 @@ $ yprov-cli auth login [OPTIONS]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
-* `--user TEXT`
-* `--password TEXT`
+* `-f, --file TEXT`: File path of the credentials in JSON format
+* `-v, --value TEXT`: String with credentials in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
+* `-u, --user TEXT`: User name (must be specified along password)
+* `-x, --password TEXT`: User's password (must be specified along user)
 * `--help`: Show this message and exit.
 
 ### `yprov-cli auth register`
@@ -297,12 +273,12 @@ $ yprov-cli auth register [OPTIONS]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
-* `--user TEXT`
-* `--password TEXT`
+* `-f, --file TEXT`: File path of the credentials in JSON format
+* `-v, --value TEXT`: String with credentials in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
+* `-u, --user TEXT`: User name (must be specified along password)
+* `-x, --password TEXT`: User's password (must be specified along user)
 * `--help`: Show this message and exit.
 
 ## `yprov-cli check`
@@ -338,9 +314,9 @@ $ yprov-cli config [OPTIONS]
 
 **Options**:
 
-* `--addr TEXT`
-* `--port INTEGER`
-* `--file TEXT`
+* `-a, --addr TEXT`: Address of the service
+* `-p, --port INTEGER`: Port of the service
+* `-f, --file TEXT`: Configuration file path
 * `--help`: Show this message and exit.
 
 ## `yprov-cli documents`
@@ -359,34 +335,11 @@ $ yprov-cli documents [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `add-user`: Add user access to a specific DB.
 * `create`: Create a new document.
 * `delete`: Delete a document.
 * `get`: Get documents.
-
-### `yprov-cli documents add-user`
-
-Add user access to a specific DB. Can be done only if owner of the DB. 
-
-**Usage**:
-
-```console
-$ yprov-cli documents add-user [OPTIONS] DOC_ID
-```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-
-**Options**:
-
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
-* `--user TEXT`
-* `--level [o|r|w]`
-* `--help`: Show this message and exit.
+* `permissions`: Add user access to a specific DB.
+* `subgraph`: Get subgraph of a specific element in...
 
 ### `yprov-cli documents create`
 
@@ -395,19 +348,16 @@ Create a new document.
 **Usage**:
 
 ```console
-$ yprov-cli documents create [OPTIONS] DOC_ID
+$ yprov-cli documents create [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the new document  [required]
+* `-f, --file TEXT`: File path of the document file in JSON format
+* `-v, --value TEXT`: String with document in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli documents delete`
@@ -417,17 +367,14 @@ Delete a document.
 **Usage**:
 
 ```console
-$ yprov-cli documents delete [OPTIONS] DOC_ID
+$ yprov-cli documents delete [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document to delete  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli documents get`
@@ -445,9 +392,48 @@ $ yprov-cli documents get [OPTIONS]
 
 **Options**:
 
-* `--doc-id TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: ID of the DB
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
+* `--help`: Show this message and exit.
+
+### `yprov-cli documents permissions`
+
+Add user access to a specific DB. Can be done only if owner of the DB. 
+
+**Usage**:
+
+```console
+$ yprov-cli documents permissions [OPTIONS]
+```
+
+**Options**:
+
+* `-d, --doc-id TEXT`: Name/ID of the new document  [required]
+* `-f, --file TEXT`: File path of the credentials in JSON format
+* `-v, --value TEXT`: String with credentials in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
+* `-u, --user TEXT`: User name (must be used along level)
+* `-l, --level [o|r|w]`: User's level of permission that you want to grant (must be specified along user)
+* `--help`: Show this message and exit.
+
+### `yprov-cli documents subgraph`
+
+Get subgraph of a specific element in specific document.
+
+**Usage**:
+
+```console
+$ yprov-cli documents subgraph [OPTIONS]
+```
+
+**Options**:
+
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: ID of the element that contain the subgraph to extract  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ## `yprov-cli elements`
@@ -478,19 +464,16 @@ Create new element.
 **Usage**:
 
 ```console
-$ yprov-cli elements create [OPTIONS] DOC_ID
+$ yprov-cli elements create [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-f, --file TEXT`: File path of the element file in JSON format
+* `-v, --value TEXT`: String with element in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli elements delete`
@@ -500,18 +483,15 @@ Delete single element.
 **Usage**:
 
 ```console
-$ yprov-cli elements delete [OPTIONS] DOC_ID E_ID
+$ yprov-cli elements delete [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the element  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli elements get`
@@ -521,18 +501,15 @@ Get single element.
 **Usage**:
 
 ```console
-$ yprov-cli elements get [OPTIONS] DOC_ID E_ID
+$ yprov-cli elements get [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the element  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli elements update`
@@ -542,20 +519,17 @@ Update element.
 **Usage**:
 
 ```console
-$ yprov-cli elements update [OPTIONS] DOC_ID E_ID
+$ yprov-cli elements update [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the element  [required]
+* `-f, --file TEXT`: File path of the element file in JSON format
+* `-v, --value TEXT`: String with element in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ## `yprov-cli entities`
@@ -586,19 +560,16 @@ Create new relation.
 **Usage**:
 
 ```console
-$ yprov-cli entities create [OPTIONS] DOC_ID
+$ yprov-cli entities create [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-f, --file TEXT`: File path of the entity file in JSON format
+* `-v, --value TEXT`: String with entity in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli entities delete`
@@ -608,18 +579,15 @@ Delete single relation.
 **Usage**:
 
 ```console
-$ yprov-cli entities delete [OPTIONS] DOC_ID E_ID
+$ yprov-cli entities delete [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the entity  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli entities get`
@@ -629,18 +597,15 @@ Get single relation.
 **Usage**:
 
 ```console
-$ yprov-cli entities get [OPTIONS] DOC_ID E_ID
+$ yprov-cli entities get [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the entity  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli entities update`
@@ -650,20 +615,17 @@ Update relation.
 **Usage**:
 
 ```console
-$ yprov-cli entities update [OPTIONS] DOC_ID E_ID
+$ yprov-cli entities update [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the entity  [required]
+* `-f, --file TEXT`: File path of the entity file in JSON format
+* `-v, --value TEXT`: String with entity in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ## `yprov-cli relations`
@@ -694,19 +656,16 @@ Create new relation.
 **Usage**:
 
 ```console
-$ yprov-cli relations create [OPTIONS] DOC_ID
+$ yprov-cli relations create [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-f, --file TEXT`: File path of the relation file in JSON format
+* `-v, --value TEXT`: String with relation in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli relations delete`
@@ -716,18 +675,15 @@ Delete single relation.
 **Usage**:
 
 ```console
-$ yprov-cli relations delete [OPTIONS] DOC_ID E_ID
+$ yprov-cli relations delete [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the relation  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli relations get`
@@ -737,18 +693,15 @@ Get single relation.
 **Usage**:
 
 ```console
-$ yprov-cli relations get [OPTIONS] DOC_ID E_ID
+$ yprov-cli relations get [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the relation  [required]
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
 
 ### `yprov-cli relations update`
@@ -758,18 +711,15 @@ Update relation.
 **Usage**:
 
 ```console
-$ yprov-cli relations update [OPTIONS] DOC_ID E_ID
+$ yprov-cli relations update [OPTIONS]
 ```
-
-**Arguments**:
-
-* `DOC_ID`: [required]
-* `E_ID`: [required]
 
 **Options**:
 
-* `--file TEXT`
-* `--value TEXT`
-* `--server-addr TEXT`
-* `--port-addr INTEGER`: [default: 3000]
+* `-d, --doc-id TEXT`: Name/ID of the document  [required]
+* `-e, --e-id TEXT`: Name/ID of the relation  [required]
+* `-f, --file TEXT`: File path of the relation file in JSON format
+* `-v, --value TEXT`: String with relation in JSON format
+* `-s, --server TEXT`: Server address
+* `-p, --port INTEGER`: Server port
 * `--help`: Show this message and exit.
