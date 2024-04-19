@@ -295,30 +295,6 @@ $ yprov-cli check [OPTIONS]
 
 * `--help`: Show this message and exit.
 
-## `yprov-cli config`
-
-Configure yProv-CLI configuration file.
-
-If file is provided it will check if it is valid, otherwise if address and port are passed
-they will be written in the config file passed. If no file is provided it will be created only
-if the basic configuration are provided.
-
-If provided file already contains port and address of the service they can be omitted
-otherwise they must be specified.
-
-**Usage**:
-
-```console
-$ yprov-cli config [OPTIONS]
-```
-
-**Options**:
-
-* `-a, --addr TEXT`: Address of the service
-* `-p, --port INTEGER`: Port of the service
-* `-f, --file TEXT`: Configuration file path
-* `--help`: Show this message and exit.
-
 ## `yprov-cli documents`
 
 Operations on documents
