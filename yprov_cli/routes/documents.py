@@ -25,7 +25,7 @@ def get_docs(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     If doc_id is provided it will return the content of that DB otherwise
     it will return the list of all documents available
     """
-    req_url = f"{get_url(server_addr, port_addr)}documents"
+    req_url = f"{get_url()}documents"
     if doc_id:
         req_url += f"/{doc_id}"
 
@@ -59,7 +59,7 @@ def get_docs(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
 
 
     """
-    req_url = f"{get_url(server_addr, port_addr)}documents/{doc_id}/subgraph"
+    req_url = f"{get_url()}documents/{doc_id}/subgraph"
 
     token = check_token()
 
@@ -98,7 +98,7 @@ def create_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     token = check_token()
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.put(f"{get_url(server_addr, port_addr)}documents/{doc_id}", headers=header, json=data)
+    response = requests.put(f"{get_url()}documents/{doc_id}", headers=header, json=data)
 
     parse_response(response)
 
@@ -122,7 +122,7 @@ def delete_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     token = check_token()
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.delete(f"{get_url(server_addr, port_addr)}documents/{doc_id}", headers=header)
+    response = requests.delete(f"{get_url()}documents/{doc_id}", headers=header)
 
     parse_response(response)
 
@@ -168,9 +168,9 @@ def add_user_to_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     """
     token = check_token()
 
-    data = get_data(file, value, user, level=level.value)
+    data = get_data(file, value, user, level) #=level.value)
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.put(f"{get_url(server_addr, port_addr)}documents/{doc_id}/permissions", headers=header, json=data)
+    response = requests.put(f"{get_url()}documents/{doc_id}/permissions", headers=header, json=data)
 
     parse_response(response)

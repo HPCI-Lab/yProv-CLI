@@ -39,7 +39,7 @@ def register(file: Annotated[str, typer.Option("--file", "-f",
     """
     data = get_data(file, value, user, password)
 
-    response = requests.post(f"{get_url(server_addr, port_addr)}auth/register", json=data)
+    response = requests.post(f"{get_url()}auth/register", json=data)
 
     parse_response(response)
 
@@ -76,6 +76,6 @@ def login(file: Annotated[str, typer.Option("--file", "-f",
     """
     data = get_data(file, value, user, password)
 
-    response = requests.post(f"{get_url(server_addr, port_addr)}auth/login", json=data)
+    response = requests.post(f"{get_url()}auth/login", json=data)
 
     parse_response(response, return_value=True)

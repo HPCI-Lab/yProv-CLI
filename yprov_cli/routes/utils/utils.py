@@ -7,7 +7,7 @@ from requests import Response
 PREFIX = "/api/v0/"
 
 
-def get_url(address: str, port: int, prefix: bool = True) -> str:
+def get_url(prefix: bool = True) -> str:
     """
     Returns the url of the service.
     Before any other choice check if a config file is present otherwise check for environment variables
@@ -16,9 +16,7 @@ def get_url(address: str, port: int, prefix: bool = True) -> str:
     :param prefix: if prefix must be added to the base url
     :return:
     """
-    if address and port:
-        addr = f"{address}:{port}"
-    elif os.getenv("YPROV_ADDR") and os.getenv("YPROV_PORT"):
+    if os.getenv("YPROV_ADDR") and os.getenv("YPROV_PORT"):
         addr = f"{os.getenv('YPROV_ADDR')}:{os.getenv('YPROV_PORT')}"
     else:
         typer.echo("Service address not present. Please configure it!", err=True)

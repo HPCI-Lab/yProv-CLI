@@ -32,7 +32,7 @@ def get_relation(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     token = check_token()
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.get(f"{get_url(server_addr, port_addr)}documents/{doc_id}/{ROUTE}/{e_id}", headers=header)
+    response = requests.get(f"{get_url()}documents/{doc_id}/{ROUTE}/{e_id}", headers=header)
 
     parse_response(response, return_value=True)
 
@@ -66,7 +66,7 @@ def create_relation(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     token = check_token()
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.post(f"{get_url(server_addr, port_addr)}documents/{doc_id}/{ROUTE}", headers=header, json=data)
+    response = requests.post(f"{get_url()}documents/{doc_id}/{ROUTE}", headers=header, json=data)
 
     parse_response(response)
 
@@ -104,7 +104,7 @@ def update_relation(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     data = get_data(file, value)
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.put(f"{get_url(server_addr, port_addr)}documents/{doc_id}/{ROUTE}/{e_id}", headers=header,
+    response = requests.put(f"{get_url()}documents/{doc_id}/{ROUTE}/{e_id}", headers=header,
                             json=data)
 
     parse_response(response)
@@ -133,6 +133,6 @@ def delete_relation(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
     token = check_token()
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.delete(f"{get_url(server_addr, port_addr)}documents/{doc_id}/{ROUTE}/{e_id}", headers=header)
+    response = requests.delete(f"{get_url()}documents/{doc_id}/{ROUTE}/{e_id}", headers=header)
 
     parse_response(response)
