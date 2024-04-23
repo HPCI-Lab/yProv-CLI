@@ -17,15 +17,7 @@ def get_element(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                 e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                   help="Name/ID of the element",
                                                   show_default=False,
-                                                  rich_help_panel="Parameters")],
-                    server_addr: Annotated[str, typer.Option("--server", "-s",
-                                                             help="Server address",
-                                                             show_default=False,
-                                                             rich_help_panel="Connection Parameters")] = None,
-                    port_addr: Annotated[int, typer.Option("--port", "-p",
-                                                           help="Server port",
-                                                           show_default=False,
-                                                           rich_help_panel="Connection Parameters")] = 3000):
+                                                  rich_help_panel="Parameters")]:
     """
     Get single element.
     """
@@ -49,15 +41,7 @@ def create_element(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                    value: Annotated[str, typer.Option("--value", "-v",
                                                       help="String with element in JSON format",
                                                       show_default=False,
-                                                      rich_help_panel="Data (Mutually Exclusive)")] = None,
-                    server_addr: Annotated[str, typer.Option("--server", "-s",
-                                                             help="Server address",
-                                                             show_default=False,
-                                                             rich_help_panel="Connection Parameters")] = None,
-                    port_addr: Annotated[int, typer.Option("--port", "-p",
-                                                           help="Server port",
-                                                           show_default=False,
-                                                           rich_help_panel="Connection Parameters")] = 3000):
+                                                      rich_help_panel="Data (Mutually Exclusive)")] = None:
     """
     Create new element.
     """
@@ -87,15 +71,7 @@ def update_element(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                    value: Annotated[str, typer.Option("--value", "-v",
                                                       help="String with element in JSON format",
                                                       show_default=False,
-                                                      rich_help_panel="Data (Mutually Exclusive)")] = None,
-                    server_addr: Annotated[str, typer.Option("--server", "-s",
-                                                             help="Server address",
-                                                             show_default=False,
-                                                             rich_help_panel="Connection Parameters")] = None,
-                    port_addr: Annotated[int, typer.Option("--port", "-p",
-                                                           help="Server port",
-                                                           show_default=False,
-                                                           rich_help_panel="Connection Parameters")] = 3000):
+                                                      rich_help_panel="Data (Mutually Exclusive)")] = None:
     """
     Update element.
     """
@@ -117,15 +93,7 @@ def delete_element(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                    e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                      help="Name/ID of the element",
                                                      show_default=False,
-                                                     rich_help_panel="Parameters")],
-                    server_addr: Annotated[str, typer.Option("--server", "-s",
-                                                             help="Server address",
-                                                             show_default=False,
-                                                             rich_help_panel="Connection Parameters")] = None,
-                    port_addr: Annotated[int, typer.Option("--port", "-p",
-                                                           help="Server port",
-                                                           show_default=False,
-                                                           rich_help_panel="Connection Parameters")] = 3000):
+                                                     rich_help_panel="Parameters")]:
     """
     Delete single element.
     """

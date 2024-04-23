@@ -10,15 +10,7 @@ app = typer.Typer(help="Operations on documents")
 @app.command('get')
 def get_docs(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                                                  help="ID of the DB",
-                                                 show_default=False)] = None,
-             server_addr: Annotated[str, typer.Option("--server", "-s",
-                                                      help="Server address",
-                                                      show_default=False,
-                                                      rich_help_panel="Connection Parameters")] = None,
-             port_addr: Annotated[int, typer.Option("--port", "-p",
-                                                    help="Server port",
-                                                    show_default=False,
-                                                    rich_help_panel="Connection Parameters")] = 3000):
+                                                 show_default=False)] = None:
     """
     Get documents.
 
@@ -45,15 +37,7 @@ def get_docs(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
              e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                help="ID of the element that contain the subgraph to extract",
                                                show_default=False,
-                                               rich_help_panel="Parameters")],
-             server_addr: Annotated[str, typer.Option("--server", "-s",
-                                                      help="Server address",
-                                                      show_default=False,
-                                                      rich_help_panel="Connection Parameters")] = None,
-             port_addr: Annotated[int, typer.Option("--port", "-p",
-                                                    help="Server port",
-                                                    show_default=False,
-                                                    rich_help_panel="Connection Parameters")] = 3000):
+                                               rich_help_panel="Parameters")]:
     """
     Get subgraph of a specific element in specific document.
 
@@ -81,15 +65,7 @@ def create_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                value: Annotated[str, typer.Option("--value", "-v",
                                                   help="String with document in JSON format",
                                                   show_default=False,
-                                                  rich_help_panel="Data (Mutually Exclusive)")] = None,
-               server_addr: Annotated[str, typer.Option("--server", "-s",
-                                                        help="Server address",
-                                                        show_default=False,
-                                                        rich_help_panel="Connection Parameters")] = None,
-               port_addr: Annotated[int, typer.Option("--port", "-p",
-                                                      help="Server port",
-                                                      show_default=False,
-                                                      rich_help_panel="Connection Parameters")] = 3000):
+                                                  rich_help_panel="Data (Mutually Exclusive)")] = None:
     """
     Create a new document.
     """
@@ -107,15 +83,7 @@ def create_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
 def delete_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                                                    help="Name/ID of the document to delete",
                                                    show_default=False,
-                                                   rich_help_panel="Parameters")],
-               server_addr: Annotated[str, typer.Option("--server", "-s",
-                                                        help="Server address",
-                                                        show_default=False,
-                                                        rich_help_panel="Connection Parameters")] = None,
-               port_addr: Annotated[int, typer.Option("--port", "-p",
-                                                      help="Server port",
-                                                      show_default=False,
-                                                      rich_help_panel="Connection Parameters")] = 3000):
+                                                   rich_help_panel="Parameters")]:
     """
     Delete a document.
     """
@@ -146,14 +114,6 @@ def add_user_to_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                                                        help="String with credentials in JSON format",
                                                        show_default=False,
                                                        rich_help_panel="Data (Mutually Exclusive)")] = None,
-                    server_addr: Annotated[str, typer.Option("--server", "-s",
-                                                             help="Server address",
-                                                             show_default=False,
-                                                             rich_help_panel="Connection Parameters")] = None,
-                    port_addr: Annotated[int, typer.Option("--port", "-p",
-                                                           help="Server port",
-                                                           show_default=False,
-                                                           rich_help_panel="Connection Parameters")] = 3000,
                     user: Annotated[str, typer.Option("--user", "-u",
                                                       help="User name (must be used along level)",
                                                       show_default=False,
