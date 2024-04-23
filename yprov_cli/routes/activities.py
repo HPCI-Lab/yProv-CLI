@@ -17,7 +17,7 @@ def get_activity(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                  e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                    help="Name/ID of the activity",
                                                    show_default=False,
-                                                   rich_help_panel="Parameters")]:
+                                                   rich_help_panel="Parameters")]):
                  
     """
     Get single activity.
@@ -42,7 +42,7 @@ def create_activity(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                     value: Annotated[str, typer.Option("--value", "-v",
                                                        help="String with activity in JSON format",
                                                        show_default=False,
-                                                       rich_help_panel="Data (Mutually Exclusive)")] = None:
+                                                       rich_help_panel="Data (Mutually Exclusive)")] = None):
     """
     Create new activity.
     """
@@ -71,7 +71,7 @@ def update_activity(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                     value: Annotated[str, typer.Option("--value", "-v",
                                                        help="String with activity in JSON format",
                                                        show_default=False,
-                                                       rich_help_panel="Data (Mutually Exclusive)")] = None:
+                                                       rich_help_panel="Data (Mutually Exclusive)")] = None):
     """
     Update activity.
     """
@@ -94,7 +94,7 @@ def delete_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                  help="Name/ID of the activity",
                                                  show_default=False,
-                                                 rich_help_panel="Parameters")]:
+                                                 rich_help_panel="Parameters")]):
     """
     Delete single activity.
     """

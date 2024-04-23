@@ -17,7 +17,7 @@ def get_element(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                 e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                   help="Name/ID of the element",
                                                   show_default=False,
-                                                  rich_help_panel="Parameters")]:
+                                                  rich_help_panel="Parameters")]):
     """
     Get single element.
     """
@@ -41,7 +41,7 @@ def create_element(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                    value: Annotated[str, typer.Option("--value", "-v",
                                                       help="String with element in JSON format",
                                                       show_default=False,
-                                                      rich_help_panel="Data (Mutually Exclusive)")] = None:
+                                                      rich_help_panel="Data (Mutually Exclusive)")] = None):
     """
     Create new element.
     """
@@ -71,7 +71,7 @@ def update_element(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                    value: Annotated[str, typer.Option("--value", "-v",
                                                       help="String with element in JSON format",
                                                       show_default=False,
-                                                      rich_help_panel="Data (Mutually Exclusive)")] = None:
+                                                      rich_help_panel="Data (Mutually Exclusive)")] = None):
     """
     Update element.
     """
@@ -93,7 +93,7 @@ def delete_element(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                    e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                      help="Name/ID of the element",
                                                      show_default=False,
-                                                     rich_help_panel="Parameters")]:
+                                                     rich_help_panel="Parameters")]):
     """
     Delete single element.
     """

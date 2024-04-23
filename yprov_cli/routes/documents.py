@@ -10,7 +10,7 @@ app = typer.Typer(help="Operations on documents")
 @app.command('get')
 def get_docs(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                                                  help="ID of the DB",
-                                                 show_default=False)] = None:
+                                                 show_default=False)] = None):
     """
     Get documents.
 
@@ -37,7 +37,7 @@ def get_docs(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
              e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                help="ID of the element that contain the subgraph to extract",
                                                show_default=False,
-                                               rich_help_panel="Parameters")]:
+                                               rich_help_panel="Parameters")]):
     """
     Get subgraph of a specific element in specific document.
 
@@ -65,7 +65,7 @@ def create_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                value: Annotated[str, typer.Option("--value", "-v",
                                                   help="String with document in JSON format",
                                                   show_default=False,
-                                                  rich_help_panel="Data (Mutually Exclusive)")] = None:
+                                                  rich_help_panel="Data (Mutually Exclusive)")] = None):
     """
     Create a new document.
     """
@@ -83,7 +83,7 @@ def create_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
 def delete_doc(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                                                    help="Name/ID of the document to delete",
                                                    show_default=False,
-                                                   rich_help_panel="Parameters")]:
+                                                   rich_help_panel="Parameters")]):
     """
     Delete a document.
     """

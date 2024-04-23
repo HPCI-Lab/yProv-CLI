@@ -17,7 +17,7 @@ def get_relation(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                  e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                    help="Name/ID of the entity",
                                                    show_default=False,
-                                                   rich_help_panel="Parameters")]:
+                                                   rich_help_panel="Parameters")]):
     """
     Get single relation.
     """
@@ -41,7 +41,7 @@ def create_relation(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                     value: Annotated[str, typer.Option("--value", "-v",
                                                        help="String with entity in JSON format",
                                                        show_default=False,
-                                                       rich_help_panel="Data (Mutually Exclusive)")] = None:
+                                                       rich_help_panel="Data (Mutually Exclusive)")] = None):
     """
     Create new relation.
     """
@@ -71,7 +71,7 @@ def update_relation(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                     value: Annotated[str, typer.Option("--value", "-v",
                                                        help="String with entity in JSON format",
                                                        show_default=False,
-                                                       rich_help_panel="Data (Mutually Exclusive)")] = None:
+                                                       rich_help_panel="Data (Mutually Exclusive)")] = None):
     """
     Update relation.
     """
@@ -94,7 +94,7 @@ def delete_relation(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                     e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                       help="Name/ID of the entity",
                                                       show_default=False,
-                                                      rich_help_panel="Parameters")]:
+                                                      rich_help_panel="Parameters")]):
     """
     Delete single relation.
     """
