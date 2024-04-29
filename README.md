@@ -66,7 +66,7 @@ Check if the service is active and running.
 
 ```console
 $ yprov-cli check [OPTIONS]
-``
+```
 
 ### `yprov-cli auth`
 
