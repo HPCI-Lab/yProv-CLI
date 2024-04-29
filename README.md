@@ -1,8 +1,47 @@
-# `yprov-cli`
+# yprov-cli
 
-yProv-CLI service
+**yprov-cli** is one of the main components of the `yProv` service architecture: it provides a Command Line Interface to easily interact with the yProv Web Service front-end.
 
-**Usage**:
+
+## Installation
+
+You can install **yprov-cli** from **pip** using the build artifacts available under the `dist` folder:
+
+```
+pip install yprov_cli-1.0.0.tar.gz
+```
+
+Alternatively, you can use `poetry` to build and package the application on your own.
+
+* Create a new conda environment with Python 3.9
+```
+conda create -n py39 python=3.9
+conda activate py39
+```
+
+- Install poetry
+```
+pip install poetry
+```
+
+- Install dependencies from `pyproject.toml`
+```
+poetry install
+```
+
+- Build the application
+```
+poetry build
+```
+
+## Environment setup
+Export the following environment variables to interact with a specific yProv instance
+```console
+$ export YPROV_ADDR=http://localhost
+$ export YPROV_PORT=3000
+```
+
+## Usage
 
 ```console
 $ yprov-cli [OPTIONS] COMMAND [ARGS]...
@@ -12,215 +51,26 @@ $ yprov-cli [OPTIONS] COMMAND [ARGS]...
 
 * `--install-completion`: Install completion for the current shell.
 * `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
-* `--help`: Show this message and exit.
+* `--help`: Show this message and exit. This option is available for every command.
 
 **Commands**:
-
-* `activities`: Operations on activities of a specific...
-* `agents`: Operations on agents of a specific document
-* `auth`: User management
+* `auth`: User management.
 * `check`: Check if the service is active and running.
-* `config`: Configure yProv-CLI configuration file.
-* `documents`: Operations on documents
-* `elements`: Operations on elements of a specific document
-* `entities`: Operations on entities of a specific document
-* `relations`: Operations on relations of a specific...
+* `documents`: Operations on documents.
 
-## `yprov-cli activities`
+### `yprov-cli check`
 
-Operations on activities of a specific document
+Check if the service is active and running.
 
 **Usage**:
 
 ```console
-$ yprov-cli activities [OPTIONS] COMMAND [ARGS]...
-```
+$ yprov-cli check [OPTIONS]
+``
 
-**Options**:
+### `yprov-cli auth`
 
-* `--help`: Show this message and exit.
-
-**Commands**:
-
-* `create`: Create new activity.
-* `delete`: Delete single activity.
-* `get`: Get single activity.
-* `update`: Update activity.
-
-### `yprov-cli activities create`
-
-Create new activity.
-
-**Usage**:
-
-```console
-$ yprov-cli activities create [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-f, --file TEXT`: File path of the activity file in JSON format
-* `-v, --value TEXT`: String with activity in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli activities delete`
-
-Delete single activity.
-
-**Usage**:
-
-```console
-$ yprov-cli activities delete [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the activity  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli activities get`
-
-Get single activity.
-
-**Usage**:
-
-```console
-$ yprov-cli activities get [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the activity  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli activities update`
-
-Update activity.
-
-**Usage**:
-
-```console
-$ yprov-cli activities update [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the activity  [required]
-* `-f, --file TEXT`: File path of the activity file in JSON format
-* `-v, --value TEXT`: String with activity in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-## `yprov-cli agents`
-
-Operations on agents of a specific document
-
-**Usage**:
-
-```console
-$ yprov-cli agents [OPTIONS] COMMAND [ARGS]...
-```
-
-**Options**:
-
-* `--help`: Show this message and exit.
-
-**Commands**:
-
-* `create`: Create new agent.
-* `delete`: Delete single agent.
-* `get`: Get single agent.
-* `update`: Update agent.
-
-### `yprov-cli agents create`
-
-Create new agent.
-
-**Usage**:
-
-```console
-$ yprov-cli agents create [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-f, --file TEXT`: File path of the agent file in JSON format
-* `-v, --value TEXT`: String with agent in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli agents delete`
-
-Delete single agent.
-
-**Usage**:
-
-```console
-$ yprov-cli agents delete [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the agent  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli agents get`
-
-Get single agent.
-
-**Usage**:
-
-```console
-$ yprov-cli agents get [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the agent  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli agents update`
-
-Update agent.
-
-**Usage**:
-
-```console
-$ yprov-cli agents update [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the agent  [required]
-* `-f, --file TEXT`: File path of the agent file in JSON format
-* `-v, --value TEXT`: String with agent in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-## `yprov-cli auth`
-
-User management
+The `auth` command allows user registration and login.
 
 **Usage**:
 
@@ -228,42 +78,14 @@ User management
 $ yprov-cli auth [OPTIONS] COMMAND [ARGS]...
 ```
 
-**Options**:
-
-* `--help`: Show this message and exit.
-
 **Commands**:
 
-* `login`: Login a user.
 * `register`: Register a new user.
+* `login`: Login to the service.
 
-### `yprov-cli auth login`
-
-Login a user.
-
-Return the provided token and saves it in the config file if provided as an environment variable
-
-**Usage**:
-
-```console
-$ yprov-cli auth login [OPTIONS]
-```
-
-**Options**:
-
-* `-f, --file TEXT`: File path of the credentials in JSON format
-* `-v, --value TEXT`: String with credentials in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `-u, --user TEXT`: User name (must be specified along password)
-* `-x, --password TEXT`: User's password (must be specified along user)
-* `--help`: Show this message and exit.
-
-### `yprov-cli auth register`
+##### `yprov-cli auth register`
 
 Register a new user.
-
-Either a file or a string with the values must be passed
 
 **Usage**:
 
@@ -273,29 +95,30 @@ $ yprov-cli auth register [OPTIONS]
 
 **Options**:
 
-* `-f, --file TEXT`: File path of the credentials in JSON format
-* `-v, --value TEXT`: String with credentials in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `-u, --user TEXT`: User name (must be specified along password)
-* `-x, --password TEXT`: User's password (must be specified along user)
-* `--help`: Show this message and exit.
+* `-u, --user TEXT`: User name, required
+* `-p, --password TEXT`: User's password, required
 
-## `yprov-cli check`
+##### `yprov-cli auth login`
 
-Check if the service is active and running.
+Login to the service and get the token to perform any other request.
 
 **Usage**:
 
 ```console
-$ yprov-cli check [OPTIONS]
+$ yprov-cli auth login [OPTIONS]
+```
+
+To user the token:
+```console
+$ export YPROV_TOKEN=[TOKEN]
 ```
 
 **Options**:
 
-* `--help`: Show this message and exit.
+* `-u, --user TEXT`: User name, required
+* `-p, --password TEXT`: User's password, required
 
-## `yprov-cli documents`
+### `yprov-cli documents`
 
 Operations on documents
 
@@ -305,19 +128,15 @@ Operations on documents
 $ yprov-cli documents [OPTIONS] COMMAND [ARGS]...
 ```
 
-**Options**:
-
-* `--help`: Show this message and exit.
-
 **Commands**:
 
 * `create`: Create a new document.
 * `delete`: Delete a document.
 * `get`: Get documents.
-* `permissions`: Add user access to a specific DB.
-* `subgraph`: Get subgraph of a specific element in...
+* `permissions`: Manage user permissions for a specific DB.
+* `subgraph`: Get the subgraph of a specific element identified by its ID.
 
-### `yprov-cli documents create`
+##### `yprov-cli documents create`
 
 Create a new document.
 
@@ -331,12 +150,9 @@ $ yprov-cli documents create [OPTIONS]
 
 * `-d, --doc-id TEXT`: Name/ID of the new document  [required]
 * `-f, --file TEXT`: File path of the document file in JSON format
-* `-v, --value TEXT`: String with document in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
+* `-v, --value TEXT`: String with document in JSON format. Use single quotes inside JSON to avoid conflict with the parsing of the string.
 
-### `yprov-cli documents delete`
+##### `yprov-cli documents delete`
 
 Delete a document.
 
@@ -349,16 +165,12 @@ $ yprov-cli documents delete [OPTIONS]
 **Options**:
 
 * `-d, --doc-id TEXT`: Name/ID of the document to delete  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
 
-### `yprov-cli documents get`
+##### `yprov-cli documents get`
 
 Get documents.
 
-If doc_id is provided it will return the content of that DB otherwise
-it will return the list of all documents available
+If `doc_id` is provided, the content of a specific DB is returned, the list of all documents otherwise.
 
 **Usage**:
 
@@ -369,13 +181,10 @@ $ yprov-cli documents get [OPTIONS]
 **Options**:
 
 * `-d, --doc-id TEXT`: ID of the DB
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
 
-### `yprov-cli documents permissions`
+##### `yprov-cli documents permissions`
 
-Add user access to a specific DB. Can be done only if owner of the DB. 
+Manage user permissions for a specific DB (only by the owner)
 
 **Usage**:
 
@@ -388,314 +197,5 @@ $ yprov-cli documents permissions [OPTIONS]
 * `-d, --doc-id TEXT`: Name/ID of the new document  [required]
 * `-f, --file TEXT`: File path of the credentials in JSON format
 * `-v, --value TEXT`: String with credentials in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `-u, --user TEXT`: User name (must be used along level)
-* `-l, --level [o|r|w]`: User's level of permission that you want to grant (must be specified along user)
-* `--help`: Show this message and exit.
-
-### `yprov-cli documents subgraph`
-
-Get subgraph of a specific element in specific document.
-
-**Usage**:
-
-```console
-$ yprov-cli documents subgraph [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: ID of the element that contain the subgraph to extract  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-## `yprov-cli elements`
-
-Operations on elements of a specific document
-
-**Usage**:
-
-```console
-$ yprov-cli elements [OPTIONS] COMMAND [ARGS]...
-```
-
-**Options**:
-
-* `--help`: Show this message and exit.
-
-**Commands**:
-
-* `create`: Create new element.
-* `delete`: Delete single element.
-* `get`: Get single element.
-* `update`: Update element.
-
-### `yprov-cli elements create`
-
-Create new element.
-
-**Usage**:
-
-```console
-$ yprov-cli elements create [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-f, --file TEXT`: File path of the element file in JSON format
-* `-v, --value TEXT`: String with element in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli elements delete`
-
-Delete single element.
-
-**Usage**:
-
-```console
-$ yprov-cli elements delete [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the element  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli elements get`
-
-Get single element.
-
-**Usage**:
-
-```console
-$ yprov-cli elements get [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the element  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli elements update`
-
-Update element.
-
-**Usage**:
-
-```console
-$ yprov-cli elements update [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the element  [required]
-* `-f, --file TEXT`: File path of the element file in JSON format
-* `-v, --value TEXT`: String with element in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-## `yprov-cli entities`
-
-Operations on entities of a specific document
-
-**Usage**:
-
-```console
-$ yprov-cli entities [OPTIONS] COMMAND [ARGS]...
-```
-
-**Options**:
-
-* `--help`: Show this message and exit.
-
-**Commands**:
-
-* `create`: Create new relation.
-* `delete`: Delete single relation.
-* `get`: Get single relation.
-* `update`: Update relation.
-
-### `yprov-cli entities create`
-
-Create new relation.
-
-**Usage**:
-
-```console
-$ yprov-cli entities create [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-f, --file TEXT`: File path of the entity file in JSON format
-* `-v, --value TEXT`: String with entity in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli entities delete`
-
-Delete single relation.
-
-**Usage**:
-
-```console
-$ yprov-cli entities delete [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the entity  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli entities get`
-
-Get single relation.
-
-**Usage**:
-
-```console
-$ yprov-cli entities get [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the entity  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli entities update`
-
-Update relation.
-
-**Usage**:
-
-```console
-$ yprov-cli entities update [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the entity  [required]
-* `-f, --file TEXT`: File path of the entity file in JSON format
-* `-v, --value TEXT`: String with entity in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-## `yprov-cli relations`
-
-Operations on relations of a specific document
-
-**Usage**:
-
-```console
-$ yprov-cli relations [OPTIONS] COMMAND [ARGS]...
-```
-
-**Options**:
-
-* `--help`: Show this message and exit.
-
-**Commands**:
-
-* `create`: Create new relation.
-* `delete`: Delete single relation.
-* `get`: Get single relation.
-* `update`: Update relation.
-
-### `yprov-cli relations create`
-
-Create new relation.
-
-**Usage**:
-
-```console
-$ yprov-cli relations create [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-f, --file TEXT`: File path of the relation file in JSON format
-* `-v, --value TEXT`: String with relation in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli relations delete`
-
-Delete single relation.
-
-**Usage**:
-
-```console
-$ yprov-cli relations delete [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the relation  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli relations get`
-
-Get single relation.
-
-**Usage**:
-
-```console
-$ yprov-cli relations get [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the relation  [required]
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
-
-### `yprov-cli relations update`
-
-Update relation.
-
-**Usage**:
-
-```console
-$ yprov-cli relations update [OPTIONS]
-```
-
-**Options**:
-
-* `-d, --doc-id TEXT`: Name/ID of the document  [required]
-* `-e, --e-id TEXT`: Name/ID of the relation  [required]
-* `-f, --file TEXT`: File path of the relation file in JSON format
-* `-v, --value TEXT`: String with relation in JSON format
-* `-s, --server TEXT`: Server address
-* `-p, --port INTEGER`: Server port
-* `--help`: Show this message and exit.
+* `-u, --user TEXT`: User name
+* `-l, --level [r|w]`: permission you want to grant for a specific user

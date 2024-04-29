@@ -20,8 +20,8 @@ def register(file: Annotated[str, typer.Option("--file", "-f",
                                                help="User name (must be specified along password)",
                                                show_default=False,
                                                rich_help_panel="Data (Mutually Exclusive)")] = None,
-             password: Annotated[str, typer.Option("--password", "-x",
-                                                   help="User's password (must be specified along user)",
+             password: Annotated[str, typer.Option("--password", "-p",
+                                                   help="User's password (required)",
                                                    show_default=False,
                                                    rich_help_panel="Data (Mutually Exclusive)")] = None):
     """
@@ -49,8 +49,8 @@ def login(file: Annotated[str, typer.Option("--file", "-f",
                                             help="User name (must be specified along password)",
                                             show_default=False,
                                             rich_help_panel="Data (Mutually Exclusive)")] = None,
-          password: Annotated[str, typer.Option("--password", "-x",
-                                                help="User's password (must be specified along user)",
+          password: Annotated[str, typer.Option("--password", "-p",
+                                                help="User's password (required)",
                                                 show_default=False,
                                                 rich_help_panel="Data (Mutually Exclusive)")] = None):
     """

@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "yprov-cli"
-version = "0.1.0"
+version = "1.0.0"
+authors = ["HPCI-Lab"]
 description = "CLI for yProv service"
-authors = ["Jclock <jacopo.clocchiatti@gmail.com>"]
 readme = "README.md"
 packages = [{include = "yprov_cli"}]
 
@@ -13,7 +13,6 @@ yprov-cli = "yprov_cli.main:app"
 python = "^3.9"
 typer = {extras = ["all"], version = "^0.9.0"}
 requests = "^2.31.0"
-
 
 [build-system]
 requires = ["poetry-core"]
