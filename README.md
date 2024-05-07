@@ -199,3 +199,18 @@ $ yprov-cli documents permissions [OPTIONS]
 * `-v, --value TEXT`: String with credentials in JSON format
 * `-u, --user TEXT`: User name
 * `-l, --level [r|w]`: permission you want to grant for a specific user
+
+##### `yprov-cli documents subgraph`
+
+Given a specific node identified by its id, get the corresponding subgraph
+
+**Usage**:
+
+```console
+$ yprov-cli documents subgraph [OPTIONS]
+```
+
+**Options**:
+
+* `-d, --doc-id TEXT`: Name/ID of the new document  [required]
+* `-e, --e_id TEXT`: Node ID
