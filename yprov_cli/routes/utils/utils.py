@@ -86,5 +86,6 @@ def check_token() -> str:
     if os.getenv("YPROV_TOKEN"):
         return os.getenv("YPROV_TOKEN")
     else:
-        typer.echo("Please specify token!")
-        raise typer.Abort
+        return None
+        # typer.echo("Please specify token!")
+        # raise typer.Abort
