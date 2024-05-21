@@ -17,15 +17,22 @@ def get_activity(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                  e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                    help="Name/ID of the activity",
                                                    show_default=False,
-                                                   rich_help_panel="Parameters")]):
+                                                   rich_help_panel="Parameters")] = None):
                  
     """
     Get single activity.
+    If e_id is provided it will return the content of that
+    otherwise it will return the list of all activities available
     """
+
+    req_url = f"{get_url()}documents/{doc_id}/{ROUTE}"
+    if e_id:
+        req_url += f"/{e_id}"
+
     token = check_token()
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.get(f"{get_url()}documents/{doc_id}/{ROUTE}/{e_id}", headers=header)
+    response = requests.get(req_url, headers=header)
 
     parse_response(response, return_value=True)
 

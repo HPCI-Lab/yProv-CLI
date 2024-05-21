@@ -10,21 +10,28 @@ app = typer.Typer(help="Operations on entities of a specific document")
 
 
 @app.command('get')
-def get_relation(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
+def get_entity(doc_id: Annotated[str, typer.Option("--doc-id", "-d",
                                                      help="Name/ID of the document",
                                                      show_default=False,
                                                      rich_help_panel="Parameters")],
                  e_id: Annotated[str, typer.Option("--e-id", "-e",
                                                    help="Name/ID of the entity",
                                                    show_default=False,
-                                                   rich_help_panel="Parameters")]):
+                                                   rich_help_panel="Parameters")] = None):
     """
-    Get single relation.
+    Get entity
+    If e_id is provided it will return the content of that
+    otherwise it will return the list of all entities available
     """
+    
+    req_url = f"{get_url()}documents/{doc_id}/{ROUTE}"
+    if e_id:
+        req_url += f"/{e_id}"
+  
     token = check_token()
 
     header = {"Authorization": f"Bearer {token}"}
-    response = requests.get(f"{get_url()}documents/{doc_id}/{ROUTE}/{e_id}", headers=header)
+    response = requests.get(req_url, headers=header)
 
     parse_response(response, return_value=True)
 
