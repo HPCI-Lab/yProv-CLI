@@ -8,7 +8,7 @@
 You can install **yprov-cli** from **pip** using the build artifacts available under the `dist` folder:
 
 ```
-pip install yprov_cli-1.0.0.tar.gz
+pip install yprov_cli-1.0.2.tar.gz
 ```
 
 Alternatively, you can use `poetry` to build and package the application on your own.
